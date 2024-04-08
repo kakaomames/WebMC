@@ -7,14 +7,20 @@ class CreateNewWorldPage extends Page {
         super();
         this.typeBtn = this.shadowRoot.getElementById("world-type-btn");
         this.typeEcho = this.shadowRoot.getElementById("world-type-echo");
+        this.typeEcho.data = "normal";
         this.createBtn = this.shadowRoot.getElementById("create-new-word");
         this.worldName = this.shadowRoot.getElementById("world-name");
         this.worldSeed = this.shadowRoot.getElementById("world-seed");
 
         this.typeBtn.addEventListener("click", () => {
-            if (this.typeEcho.innerHTML == "Normal")
-                this.typeEcho.innerHTML = "Flat";
-            else this.typeEcho.innerHTML = "Normal";
+            if (this.typeEcho.innerHTML == "普通") {
+                this.typeEcho.innerHTML = "超平坦";
+                this.typeEcho.data = "flat";
+            }
+            else {
+                this.typeEcho.innerHTML = "普通";
+                this.typeEcho.data = "normal";
+            }
         });
 
         this.createBtn.addEventListener("click", () => {
@@ -25,7 +31,7 @@ class CreateNewWorldPage extends Page {
                 worldType: ({
                     Normal: "pre-classic",
                     Flat: "flat",
-                })[this.typeEcho.innerHTML],
+                })[this.typeEcho.data],
                 seed,
             });
         });
