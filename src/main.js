@@ -16,9 +16,6 @@ import "./UI/index.js";
 import "./processingPictures.js";
 
 localStorage.setItem("mcStorageVer", "v0.0.0");
-if (localStorage.getItem("language") === null) {
-    localStorage.setItem('language', 'zh_cn');
-}
 /*
 mcStorageVer v0.0.0:
 localStorage: {

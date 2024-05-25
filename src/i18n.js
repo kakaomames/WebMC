@@ -187,6 +187,9 @@ i18n_module.languages = {
         }
     }
 }
+if (localStorage.getItem("language") === null) {
+    localStorage.setItem('language', 'zh_cn');
+}
 window.i18n = i18n_module['languages'][localStorage.getItem('language')];
 i18n_module.set_language = (language_code) => {
     window.language_code = language_code;
