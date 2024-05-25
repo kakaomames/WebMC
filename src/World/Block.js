@@ -1,5 +1,6 @@
 import { asyncLoadResByUrl } from "../utils/loadResources.js";
 import { textureMipmapByTile, prepareTextureAarray, blockInventoryTexture } from "../processingPictures.js";
+import "../i18n.js";
 
 
 // 用32位储存方块id和data。高16位存data，低16位存id。
@@ -44,7 +45,7 @@ class Block {
         friction = 1,
         id = findEmptyIdSlot(),
         bd = 0,
-        showName = blockName.toLowerCase().replace(/_/g, " ").replace(/^\w|\s\w/g, w => w.toUpperCase()),
+        showName = i18n['blockShowNames'][blockName],
         isLeaves = blockName.endsWith("leaves"),
         isGlass = blockName.endsWith("glass"),
         isFluid = renderType == Block.renderType.FLUID,

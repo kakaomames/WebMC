@@ -1,20 +1,30 @@
 
 import { Page, pm } from "./Page.js";
-
+import "../../i18n.js";
 class CreateNewWorldPage extends Page {
     static get outdegree() { return ["select-world", "play", ]; };
     constructor() {
         super();
-        this.typeBtn = this.shadowRoot.getElementById("world-type-btn");
+        for (var key in i18n['ui']) {
+            var node = this.shadowRoot.getElementById(key);
+            if (node) { node.innerText = i18n['ui'][key]; node.setAttribute('placeholder', i18n['ui'][key]); }
+        }
+        this.typeBtn = this.shadowRoot.getElementById("world-type-btn-event");
         this.typeEcho = this.shadowRoot.getElementById("world-type-echo");
-        this.createBtn = this.shadowRoot.getElementById("create-new-word");
+        this.typeEcho.setAttribute("data", "normal");
+        this.createBtn = this.shadowRoot.getElementById("create-new-world");
         this.worldName = this.shadowRoot.getElementById("world-name");
         this.worldSeed = this.shadowRoot.getElementById("world-seed");
 
         this.typeBtn.addEventListener("click", () => {
-            if (this.typeEcho.innerHTML == "Normal")
-                this.typeEcho.innerHTML = "Flat";
-            else this.typeEcho.innerHTML = "Normal";
+            if (this.typeEcho.innerHTML == i18n['ui']['normal']) {
+                this.typeEcho.innerHTML = i18n['ui']['flat'];
+                this.typeEcho.setAttribute("data", "flat");
+            }
+            else {
+                this.typeEcho.innerHTML = i18n['ui']['normal'];
+                this.typeEcho.setAttribute("data", "normal");
+            }
         });
 
         this.createBtn.addEventListener("click", () => {
@@ -25,7 +35,7 @@ class CreateNewWorldPage extends Page {
                 worldType: ({
                     Normal: "pre-classic",
                     Flat: "flat",
-                })[this.typeEcho.innerHTML],
+                })[this.typeEcho.getAttribute("data")],
                 seed,
             });
         });

@@ -69,7 +69,7 @@
     }
 </style>
 <div class="container">
-    <h1>Select World</h1>
+    <h1 id="choose-world-title"></h1>
     <ul id="world-list">
         <li>
             <span class="world-name">Seed</span>
@@ -81,9 +81,9 @@
     </ul>
     <div class="btns">
         <!-- <mc-button id="btn-select" gotoPage="play" disabled>Play Selected World</mc-button> -->
-        <mc-button id="btn-select" disabled>Play Selected World</mc-button>
-        <mc-button id="btn-del" disabled>Delete</mc-button>
-        <mc-button gotoPage="create-new-world">Create New World</mc-button>
-        <mc-button gotoPage="*pop">Cancel</mc-button>
+        <mc-button id="btn-select" disabled></mc-button>
+        <mc-button id="btn-del" disabled></mc-button>
+        <mc-button id="create-new-world" gotoPage="create-new-world"></mc-button>
+        <mc-button id="cancel" gotoPage="*pop"></mc-button>
     </div>
 </div>

@@ -1,6 +1,7 @@
 
 import { Page, pm } from "./Page.js";
 import { PlayerLocalController } from "../../Entity/PlayerLocalController.js";
+import "../../i18n.js";
 
 class PlayPage extends Page {
     static get outdegree() { return ["load-terrain", "pause", ]; };
@@ -94,6 +95,15 @@ pm.addEventListener("pause=>play", (pause, play) => {
 });
 
 PlayPage.asyncLoadAndDefine();
+
+for (var key in i18n['ui']) {
+    try {
+        document.getElementById(key).innerText = i18n['ui'][key];
+    }
+    catch (e) {
+        // console.log(e);
+    }
+}
 
 
 export {

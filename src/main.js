@@ -1,6 +1,6 @@
 
 import "./globalVeriable.js";
-
+import "./i18n.js";
 window.addEventListener("contextmenu", e => { if (e.cancelable) e.preventDefault(); }, true);
 
 const updatePixelRatio = () => {
@@ -39,5 +39,6 @@ localStorage: {
             modityAt: 最后一次修改世界时的时间戳,
         }, ...
     },
+    language: 语言（用于i18n）
 }
 */

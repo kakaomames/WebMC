@@ -1,5 +1,6 @@
 
 import { Page, pm } from "./Page.js";
+import "../../i18n.js";
 
 class SelectWorldPage extends Page {
     static get outdegree() { return ["welcome", "play", "create-new-world", ]; };
@@ -24,7 +25,7 @@ class SelectWorldPage extends Page {
                 <li>
                     <span class="world-name">${world.name}</span>
                     <span class="create-at">Created - ${timestamp2str(world.createAt)}</span>
-                    <span class="modify-at">Modified - ${timestamp2str(world.modifyAt)}</span>
+                    <span class="modify-at">Saved - ${timestamp2str(world.modifyAt)}</span>
                     <span class="world-mode">${world.type}</span>
                     <span class="storageId">${storageId}</span>
                 </li>
@@ -57,6 +58,15 @@ class SelectWorldPage extends Page {
 };
 
 SelectWorldPage.asyncLoadAndDefine();
+
+for (var key in i18n['ui']) {
+    try {
+        document.getElementById(key).innerText = i18n['ui'][key];
+    }
+    catch (e) {
+        // console.log(e);
+    }
+}
 
 export {
     SelectWorldPage,
