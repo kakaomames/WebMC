@@ -69,8 +69,9 @@ class MCComponent extends HTMLElement {
         if (!componentName) throw "Component registration failed: Missing componentName.";
         return customElements.define(componentName, this);
     };
-    static asyncLoadAndDefine() {
-        return this.asyncLoadTemplateByUrl().then(_ => this.define());
+    static async asyncLoadAndDefine() {
+        const _ = await this.asyncLoadTemplateByUrl();
+        return this.define();
     };
     static getTemplateByUrl(url = this.templateUrl) {
         return mcComponents[url];

@@ -1,6 +1,6 @@
 
 import { Page, pm } from "./Page.js";
-
+import "../../i18n.js";
 import { World } from "../../World/World.js";
 import { WorldRenderer } from "../../Renderer/WorldRenderer.js";
 

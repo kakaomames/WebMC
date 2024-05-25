@@ -27,19 +27,19 @@
     }
 </style>
 <div class="wrapper">
-    <h1>设置</h1>
+    <h1></h1>
     <!-- <mc-slider id="render-distance" label="Render Distance: " unit=" chunks" step="1"></mc-slider> <mc-button>default</mc-button>
     <br /> -->
-    <mc-slider id="fov" label="视野：" unit=" °" step="1"></mc-slider> <mc-button>default</mc-button>
+    <mc-slider id="fov" label="" unit="°" step="1"></mc-slider> <mc-button>default</mc-button>
     <br />
-    <mc-slider id="mouse-sensitivity" unit=" " label="鼠标灵敏度: " step="1"></mc-slider> <mc-button>default</mc-button>
+    <mc-slider id="mouse-sensitivity" unit=" " label="" step="1"></mc-slider> <mc-button>default</mc-button>
     <br />
     <div class="homepage-blur-group">
-        <mc-slider id="homepage-blur" label="主页模糊度: " unit=" px" min="0" step="0.5" max="10" value="3.5"></mc-slider> <mc-button>default</mc-button>
+        <mc-slider id="homepage-blur" label="" unit=" px" min="0" step="0.5" max="10" value="3.5"></mc-slider> <mc-button>default</mc-button>
     </div>
-    <mc-button id="shade-btn">禁用平滑光照:&emsp;<span id="shade-echo">OFF</span></mc-button>
+    <mc-button><span id="shade-btn"></span>&emsp;<span id="shade-echo">OFF</span></mc-button>
     <br/>
-    <mc-button id="debug-output-btn">调试输出:&emsp;<span id="debug-output-echo">OFF</span></mc-button>
+    <mc-button><span id="debug-output-btn"></span>&emsp;<span id="debug-output-echo">OFF</span></mc-button>
     <br />
-    <mc-button gotoPage="*pop">返回</mc-button>
+    <mc-button id="return" gotoPage="*pop"></mc-button>
 </div>

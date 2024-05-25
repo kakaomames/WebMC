@@ -1,6 +1,6 @@
 
 import "./globalVeriable.js";
-
+import "./i18n.js";
 window.addEventListener("contextmenu", e => { if (e.cancelable) e.preventDefault(); }, true);
 
 const updatePixelRatio = () => {
@@ -16,6 +16,9 @@ import "./UI/index.js";
 import "./processingPictures.js";
 
 localStorage.setItem("mcStorageVer", "v0.0.0");
+if (localStorage.getItem("language") === null) {
+    localStorage.setItem('language', 'zh_cn');
+}
 /*
 mcStorageVer v0.0.0:
 localStorage: {
@@ -39,5 +42,6 @@ localStorage: {
             modityAt: 最后一次修改世界时的时间戳,
         }, ...
     },
+    language: 语言（用于i18n）
 }
 */

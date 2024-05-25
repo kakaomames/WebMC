@@ -1,6 +1,7 @@
 
 import { Page, pm } from "./Page.js";
 import { settings } from "../../settings.js";
+import "../../i18n.js";
 
 class SettingPage extends Page {
     static get outdegree() { return ["welcome", "pause", ]; };
@@ -94,6 +95,15 @@ class SettingPage extends Page {
 
 SettingPage.asyncLoadAndDefine();
 
+for (var key in i18n['ui']) {
+    try {
+        document.querySelector("body > mcpage-setting").shadowRoot.getElementById(key).label = i18n['ui'][key];
+        document.getElementById(key).innerText = i18n['ui'][key];
+    }
+    catch (e) {
+        // console.log(e);
+    }
+}
 
 export {
     SettingPage,

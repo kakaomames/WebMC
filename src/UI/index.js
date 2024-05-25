@@ -9,6 +9,7 @@ export * from "./pages/LoadTerrainPage.js";
 export * from "./pages/PausePage.js";
 export * from "./pages/PlayPage.js";
 export * from "./pages/CreateNewWorldPage.js";
+export * from "./pages/ChangeLanguagePage.js"
 
 // mc components
 export * from "./components/MCButton.js";

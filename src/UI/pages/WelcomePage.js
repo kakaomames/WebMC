@@ -1,13 +1,17 @@
 
 import { Page } from "./Page.js";
 import { settings } from "../../settings.js";
-
+import "../../i18n.js";
 import { WelcomeRenderer } from "../../Renderer/WelcomePageRenderer.js";
 
 class WelcomePage extends Page {
-    static get outdegree() { return ["select-world", "how-to-play", "setting", ]; };
+    static get outdegree() { return ["select-world", "how-to-play", "setting", "change-language",]; };
     constructor() {
         super();
+        for (var key in i18n['ui']) {
+            var node = this.shadowRoot.getElementById(key);
+            if (node) { node.innerText = i18n['ui'][key]; }
+        }
         this.bgCanvas = this.shadowRoot.getElementById("background-canvas");
         this.renderer = null;
     };

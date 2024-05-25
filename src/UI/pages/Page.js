@@ -88,6 +88,10 @@ class Page extends MCComponent {
     get outdegree() { return this.constructor.outdegree; };
     constructor() {
         super();
+        for (var key in i18n['ui']) {
+            var node = this.shadowRoot.getElementById(key);
+            if (node) { node.innerText = i18n['ui'][key]; }
+        }
         if (new.target.name === "Page")
             throw "Class 'Page' cannot be instantiated!";
         pageManager.addTransitions(this.outdegree.map(to => ({
